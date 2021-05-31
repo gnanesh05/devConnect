@@ -4,7 +4,7 @@ const User = require('../../models/Users');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const {check, validationResult} = require('express-validator/check');
+const {check, validationResult} = require('express-validator');
 const config = require('config');
 //add user route
 router.post('/',
