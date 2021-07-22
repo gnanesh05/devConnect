@@ -6,7 +6,8 @@ import{
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    LOGIN_FAILURE,
+    LOGOUT
 
 } from '../actions/Type';
 
@@ -107,4 +108,13 @@ export const login =(email,password) => async dispatch =>{
 
        
     }
+}
+
+//logout
+
+export const logout = ()=>dispatch=>{
+
+    dispatch({
+        type: LOGOUT
+    })
 }
