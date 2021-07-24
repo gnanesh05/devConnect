@@ -56,7 +56,7 @@ export const Login = ({login, isAuthenticated}) => {
                         type="password"
                         placeholder="Password"
                         name="password"
-                        minLength="6"
+                        minLength="4"
                         required
                         value={password}
                         onChange={e => onChange(e)}
