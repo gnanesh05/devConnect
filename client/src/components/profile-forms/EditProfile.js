@@ -92,7 +92,14 @@ function EditProfile({profile:{profile, loading},createProfile, history, getCurr
           >
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Company" name="company" value={company} onChange={e=>onChange(e)} />
+          {/* <input type="text" placeholder="Company" name="company" value={company} onChange={e=>onChange(e)} /> */}
+          <input
+            type="text"
+            placeholder="Company"
+            name="company"
+            value={company}
+            onChange={onChange}
+          />
           <small class="form-text"
             >Could be your own company or one you work for</small
           >

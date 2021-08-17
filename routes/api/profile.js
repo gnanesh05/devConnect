@@ -60,16 +60,21 @@ router.post('/',[auth,[
 
          const profileFields = {};
          profileFields.user = req.user.id;
-         if(company) profileFields.company = company;
+        
          if(location) profileFields.location = location
          if(website) profileFields.website = website;
          if(bio) profileFields.bio = bio;
          if(status) profileFields.status = status;
          if(githubusername) profileFields.githubusername = githubusername;
+         if(company) profileFields.company = company;
          
          if(skills)
          {
-             profileFields.skills = skills.split(',').map(skill =>skill.trim());
+            //  profileFields.skills = skills.split(',').map(skill =>skill.trim());
+         Array.isArray(skills)
+        ? skills
+        : skills.split(',').map((skill) => ' ' + skill.trim())
+        profileFields.skills = skills;  
          }
 
          profileFields.social = {};
@@ -84,14 +89,14 @@ router.post('/',[auth,[
          
     try
     {
-        let profile = await Profile.findOne({user:req.user.id});
+        let profile = await Profile.findOneAndUpdate({user:req.user.id});
         //update
         if(profile)
         {
             profile = await Profile.findOneAndUpdate(
                 {user: req.user.id},
                 {$set: profileFields},
-                {new: true}
+                {new: true,upsert: true, setDefaultsOnInsert: true}
             )
 
             return res.json(profile);
