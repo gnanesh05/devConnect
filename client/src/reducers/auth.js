@@ -6,7 +6,8 @@ import {
     LOGIN_FAILURE,
     LOGIN_SUCCESS,
     LOGOUT,
-    CLEAR_PROFILE
+    CLEAR_PROFILE,
+    DELETE_ACCOUNT
 }from "../actions/Type";
 
 
@@ -67,6 +68,7 @@ export default function(state = initialState, action){
              loading: false
          }
     
+    case DELETE_ACCOUNT:
     case LOGOUT:
     case LOGIN_FAILURE:
         localStorage.removeItem('token');

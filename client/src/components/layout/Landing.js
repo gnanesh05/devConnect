@@ -10,7 +10,7 @@ export const Landing = ({isAuthenticated}) => {
      return <Redirect to="/dashboard"></Redirect>;
    }
     return (
-        <section class="landing">
+        <section class="landing" >
         <div class="dark-overlay">
           <div class="landing-inner">
             <h1 class="x-large">Developer Community</h1>
