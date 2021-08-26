@@ -6,7 +6,7 @@ module.exports = (req,res,next)=>{
 
     if(!token)
     {
-        res.status(401).json({msg:'No token, failed authorization'});
+       return res.status(401).json({msg:'No token, failed authorization'});
 
     }
 
@@ -17,6 +17,6 @@ module.exports = (req,res,next)=>{
     }
     catch(err)
     {
-        res.status(401).json({msg:"Token not valid"});
+        return res.status(401).json({msg:"Token not valid"});
     }
 }

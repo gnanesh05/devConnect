@@ -56,7 +56,7 @@ function EditProfile({profile:{profile, loading},createProfile, history, getCurr
           youtube: loading|| !profile.social ? "":profile.social.youtube,
           instagram: loading|| !profile.social ? "":profile.social.instagram,
       })
-  },[loading]);
+  },[loading, getCurrentProfile]);
 
    const onChange = e =>setFormData({...formData, [e.target.name]: e.target.value});
 
