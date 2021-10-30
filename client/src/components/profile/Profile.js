@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom'
 import { connect} from 'react-redux'
 import Spinner from '../layout/Spinner'
 import { getProfileById } from '../../actions/profile'
-import auth from '../../reducers/auth'
 import ProfileTop from './ProfileTop'
 
 
 
-const Profile = ({match, profile:{profile,loading}, auth, getProfileById}) => {
+const Profile = ({match, profile:{profile}, auth, getProfileById}) => {
     useEffect(()=>{
        getProfileById(match.params.id)
     },[getProfileById, match.params.id])
@@ -22,6 +21,7 @@ const Profile = ({match, profile:{profile,loading}, auth, getProfileById}) => {
           <Link to="/profiles" className="btn btn-light">
             Back To Profiles
           </Link>
+          <p>{auth}</p>
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === profile.user._id && (
