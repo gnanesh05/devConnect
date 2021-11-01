@@ -5,6 +5,7 @@ import { connect} from 'react-redux'
 import Spinner from '../layout/Spinner'
 import { getProfileById } from '../../actions/profile'
 import ProfileTop from './ProfileTop'
+import ProfileAbout from './ProfileAbout'
 
 
 
@@ -21,7 +22,6 @@ const Profile = ({match, profile:{profile}, auth, getProfileById}) => {
           <Link to="/profiles" className="btn btn-light">
             Back To Profiles
           </Link>
-          <p>{auth}</p>
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === profile.user._id && (
@@ -31,6 +31,7 @@ const Profile = ({match, profile:{profile}, auth, getProfileById}) => {
             )}
               <div className="profile-grid my-1">
                   <ProfileTop profile={profile}/>
+                  <ProfileAbout profile={profile} />
               </div>
               </Fragment>)
               }
